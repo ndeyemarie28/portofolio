@@ -1,0 +1,276 @@
+<?php
+require_once __DIR__ . '/config/database.php';
+
+$database = new Database();
+$db = $database->getConnection();
+$stmt = $db->query("SELECT * FROM profile_content WHERE id = 1");
+$p = $stmt->fetch();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= htmlspecialchars($p['nom']) ?> — Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="essai.css">
+</head>
+<body>
+
+    <div class="hero-banner">
+
+        <img src="assets/montagne1.jpg" class="mountain-bg" alt="">
+        <div class="hero-overlay"></div>
+
+
+        <nav class="navbar navbar-expand-lg w-100">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="#">
+                     Ndèye Marie
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#services">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact me</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="hero-content text-center" id="home">
+            <div class="profile-ring mx-auto mb-4">
+                <img src="assets/Marie.png" class="profile-img" alt="<?= htmlspecialchars($p['nom']) ?>">
+            </div>
+
+            <p class="eyebrow">DATA TRANSMISSION &amp; INFORMATION SECURITY</p>
+            <h1 class="hero-title">Hello, I'm <?= htmlspecialchars($p['nom']) ?></h1>
+            <p class="hero-sub">
+                I build secure, responsive websites and mobile apps — and I care just as much
+                about what happens under the hood as what you see on screen.
+            </p>
+
+            <a href="#about" class="btn btn-cta mt-3">View my work</a>
+
+            <div class="scroll-cue">
+                <span>Scroll down</span>
+                <div class="scroll-line"></div>
+            </div>
+        </div>
+    </div>
+
+
+   
+    <section id="about" class="section-about">
+        <div class="container">
+            <div class="row align-items-center g-5">
+
+                <div class="col-lg-5">
+                    <div class="about-frame">
+                        <img src="assets/maryam.jpeg" class="img-fluid about-img" alt="<?= htmlspecialchars($p['nom']) ?>">
+                        <span class="corner corner-tl"></span>
+                        <span class="corner corner-br"></span>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <p class="eyebrow eyebrow-red">DISCOVER</p>
+                    <h2 class="section-title">About Me</h2>
+                    <div class="accent-bar"></div>
+
+                    <p class="about-text">
+                        <?= nl2br(htmlspecialchars($p['a_propos'])) ?>
+                    </p>
+
+                    <div class="id-card">
+                        <div class="id-card-header">
+                            <span class="id-dot"></span> PROFILE
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <p><span class="id-label">Name</span> <?= htmlspecialchars($p['nom']) ?></p>
+                                <p><span class="id-label">Phone</span> <?= htmlspecialchars($p['telephone']) ?></p>
+                                <p><span class="id-label">Level</span> <?= htmlspecialchars($p['niveau']) ?></p>
+                                <p><span class="id-label">University</span> <?= htmlspecialchars($p['universite']) ?></p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p><span class="id-label">Age</span> <?= htmlspecialchars($p['age']) ?></p>
+                                <p><span class="id-label">City</span> <?= htmlspecialchars($p['ville']) ?></p>
+                                <p><span class="id-label">Email</span> <?= htmlspecialchars($p['email']) ?></p>
+                                <p><span class="id-label">Available</span> <span class="status-dot"></span> <?= $p['disponible'] ? 'Yes' : 'No' ?></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="assets/CV_Ndeye.pdf" class="btn btn-cta mt-4" target="_blank">Download my CV</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="resume" class="section-resume">
+    <div class="container">
+        <p class="eyebrow eyebrow-red text-center">MY JOURNEY</p>
+        <h2 class="section-title text-center">Resume</h2>
+        <div class="accent-bar accent-bar-center"></div>
+
+        <div class="row g-5 mt-4">
+
+            <div class="col-lg-6">
+                <h4 class="resume-subtitle"><span class="cyan-dot"></span> Education</h4>
+
+                <div class="timeline-item">
+                    <span class="timeline-tag">2026-present</span>
+                    <h5>Licence 3 — Data Transmission &amp; Information Security</h5>
+                    <p>Université Cheikh Anta Diop (UCAD), Dakar</p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-tag">2023 — 2025</span>
+                    <h5>Bachelor's Program in Mathematics, Physics and Computer Science (MPI) </h5>
+                    <p>UCAD, Dakar</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <h4 class="resume-subtitle"><span class="cyan-dot"></span> Skills</h4>
+
+                <div class="skill-item">
+                    <div class="skill-label"><span>HTML / CSS / JavaScript</span><span>80%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width:90%;"></div></div>
+                </div>
+                                <div class="skill-item">
+                    <div class="skill-label"><span>Cybersecurity</span><span>50%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width:50%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-label"><span>PHP</span><span>45%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width:75%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-label"><span>Flutter / React Native</span><span>0%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width:70%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-label"><span>Cryptography &amp; Network Security</span><span>65%</span></div>
+                    <div class="skill-bar"><div class="skill-fill" style="width:65%;"></div></div>
+                </div>
+                
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+    
+    <section id="services" class="section-services">
+        <div class="container">
+            <p class="eyebrow eyebrow-red text-center">WHAT I DO</p>
+            <h2 class="section-title text-center">My Services</h2>
+            <div class="accent-bar accent-bar-center"></div>
+
+            <div class="row g-4 mt-4">
+
+                <div class="col-12 col-md-4">
+                    <div class="service-card">
+                        <span class="service-tag">CH.01</span>
+                        <h5>Web Development</h5>
+                        <p>HTML, CSS, JavaScript, PHP — responsive sites built to last.</p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="service-card">
+                        <span class="service-tag">CH.02</span>
+                        <h5>Machine Learning</h5>
+                        <p>Python, data preprocessing, and model training, turning data into predictions</p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="service-card">
+                        <span class="service-tag">CH.03</span>
+                        <h5>Cybersecurity</h5>
+                        <p>Network security, cryptography — protecting data end to end.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-contact">
+    <div class="container">
+        <p class="eyebrow eyebrow-red text-center">GET IN TOUCH</p>
+        <h2 class="section-title text-center">Contact Me</h2>
+        <div class="accent-bar accent-bar-center"></div>
+
+        <div class="row g-5 mt-4 align-items-start">
+
+            <div class="col-lg-5">
+                <div class="id-card">
+                    <div class="id-card-header">
+                        <span class="id-dot"></span> CONTACT INFO
+                    </div>
+                    <p><span class="id-label">Email</span> <?= htmlspecialchars($p['email']) ?></p>
+                    <p><span class="id-label">Phone</span> <?= htmlspecialchars($p['telephone']) ?></p>
+                    <p><span class="id-label">City</span> <?= htmlspecialchars($p['ville']) ?>, Senegal</p>
+                    <p><span class="id-label">Available</span> <span class="status-dot"></span> <?= $p['disponible'] ? 'Yes' : 'No' ?></p>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <form class="contact-form" action="traiter_contact.php" method="POST">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <input type="text" name="nom" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="col-12">
+                            <input type="text" name="sujet" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="col-12">
+                            <textarea name="message" class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-cta">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <footer class="footer text-center">
+        <p>&copy; 2026 <?= htmlspecialchars($p['nom']) ?>. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+    <script src="essai.js"></script>
+</body>
+</html>

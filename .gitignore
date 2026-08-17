@@ -1,0 +1,7 @@
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Dossiers vides (placeholders)
+assets/icons/.gitkeep
+assets/image/.gitkeep
