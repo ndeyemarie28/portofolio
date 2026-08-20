@@ -119,9 +119,6 @@ a, .nav-link, .navbar-brand, .dropdown-item, .form-control, .btn {
 .btn-outline-success { color: #fff !important; border-color: #fff !important; }
 .btn-outline-success:hover { background-color: #fff !important; color: #000 !important; }
 
-/* =========================================================
-   HERO
-========================================================= */
 .hero-banner {
   position: relative;
   min-height: 100vh;
@@ -319,9 +316,7 @@ a, .nav-link, .navbar-brand, .dropdown-item, .form-control, .btn {
   box-shadow: 0 0 6px var(--green);
   margin-right: 0.3rem;
 }
-/* =========================================================
-   RESUME
-========================================================= */
+
 .section-resume {
   background-color: var(--navy-900);
   padding: 6rem 0;
@@ -408,9 +403,7 @@ a, .nav-link, .navbar-brand, .dropdown-item, .form-control, .btn {
 
 
 
-/* =========================================================
-   SERVICES
-========================================================= */
+
 .section-services {
   background-color: var(--navy-950);
   padding: 6rem 0;
@@ -428,6 +421,30 @@ a, .nav-link, .navbar-brand, .dropdown-item, .form-control, .btn {
 .service-card:hover {
   border-color: var(--cyan);
   transform: translateY(-4px);
+}
+.social-links {
+  border-top: 1px solid rgba(51, 217, 232, 0.15);
+  padding-top: 1.2rem;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(51, 217, 232, 0.3);
+  color: var(--cyan);
+  font-size: 1.15rem;
+  transition: all 0.25s ease;
+}
+
+.social-icon:hover {
+  background-color: var(--cyan);
+  color: var(--navy-900);
+  box-shadow: 0 0 12px var(--cyan);
+  transform: translateY(-2px);
 }
 
 .service-tag {
